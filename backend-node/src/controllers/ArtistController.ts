@@ -3,13 +3,12 @@ import * as yup from "yup";
 import { getAlbumsByArtistId, getArtistById, getTopByArtistId } from "../thirdParties";
 import { ApiResponseCodeType, DATA_VALIDATION_OPTIONS, HTTP_RESPONSE_CODES } from "../types";
 import { ApiResponse, DataValidationError } from "../utils";
-import { AlbumMapper, TopTrackMapper } from "../mappers";
+import { AlbumMapper, ArtistMapper, TopTrackMapper } from "../mappers";
 
 export class ArtistController {
     constructor() {}
 
     public getArtistDetails(req: Request, res: Response, next: NextFunction) {
-        console.log(req.params);
         try {
             const { id } = yup
                 .object({ id: yup.number().required() })
@@ -20,7 +19,7 @@ export class ArtistController {
             getArtistById(id)
                 .then((data) => {
                     let response = new ApiResponse<any, any>("Success", ApiResponseCodeType.SUCCESS);
-                    response.setData(data);
+                    response.setData(ArtistMapper.mapResponseModel(data));
                     res.status(HTTP_RESPONSE_CODES.OK).json(response);
                 })
                 .catch(next);

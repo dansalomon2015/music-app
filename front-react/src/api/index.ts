@@ -2,7 +2,7 @@ import axios from "axios";
 import { AlbumModel, ArtistModel, SearchResultModel, TopTrackModel } from "models";
 import { ResponseType } from "types";
 
-const BASE_URL = "http://localhost:5000/api/";
+const BASE_URL = "https://webapp-nkstiyyuyq-uc.a.run.app/api/";
 
 export const search = async (q: string): Promise<ResponseType<SearchResultModel[]>> => {
     let response = await axios.get(BASE_URL + "search", { params: { q } });

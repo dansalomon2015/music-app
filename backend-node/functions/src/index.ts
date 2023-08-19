@@ -7,6 +7,11 @@
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
 
+import { setGlobalOptions } from "firebase-functions/v2";
+
+// Set the maximum instances to 10 for all functions
+setGlobalOptions({ maxInstances: 10 });
+
 import { onRequest } from "firebase-functions/v2/https";
 // import * as logger from "firebase-functions/logger";
 
@@ -28,7 +33,7 @@ import { HTTP_RESPONSE_CODES } from "./types";
 import express = require("express");
 import cors = require("cors");
 
-const PORT = 5000;
+// const PORT = 5000;
 const app = express();
 
 // Use the cors middleware
@@ -52,7 +57,7 @@ app.use("/api/search", SearchRoutes);
 app.use("/api/artist", ArtistRoutes);
 
 app.get("/", (req: Request, res: Response) => {
-    res.send(`App is running on port ${PORT} `);
+    res.send(`App is running on port`);
 });
 
 app.all("*", (req: Request, res: Response, next: NextFunction) => {
@@ -61,8 +66,8 @@ app.all("*", (req: Request, res: Response, next: NextFunction) => {
 
 app.use(globalErrorHandler);
 
-app.listen(PORT, () => {
-    console.log(`Start listening on port ${PORT} `);
-});
+// app.listen(PORT, () => {
+//     console.log(`Start listening on port ${PORT} `);
+// });
 
 export const webApp = onRequest(app);

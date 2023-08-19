@@ -15,6 +15,7 @@ export class SearchResultMapper {
             album: {
                 id: data.album.id,
                 cover: data.album.cover_big,
+                title: data.album.title,
             },
         };
     }

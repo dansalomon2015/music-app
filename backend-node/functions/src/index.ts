@@ -38,7 +38,7 @@ const app = express();
 
 // Use the cors middleware
 
-const allowedOrigins = ["http://localhost:3000"];
+const allowedOrigins = ["http://localhost:3000", "https://music-app-a57cf.web.app"];
 
 const corsOptions: cors.CorsOptions = {
     origin: (origin, callback) => {

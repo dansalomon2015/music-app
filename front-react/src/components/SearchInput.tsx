@@ -1,11 +1,13 @@
 import { FC } from "react";
+import { Loader } from "./Loader";
 
 type Props = {
     value: string;
     onValueChange: (s: string) => void;
+    loading: boolean;
 };
 
-export const SearchInput: FC<Props> = ({ value, onValueChange }) => {
+export const SearchInput: FC<Props> = ({ value, onValueChange, loading }) => {
     return (
         <div className="mt-4 pl-3 md:pl-0 pr-3 w-full md:w-96 ml-auto">
             <form>
@@ -26,9 +28,9 @@ export const SearchInput: FC<Props> = ({ value, onValueChange }) => {
                         >
                             <path
                                 stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
                                 d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
                             />
                         </svg>
@@ -44,6 +46,8 @@ export const SearchInput: FC<Props> = ({ value, onValueChange }) => {
                         placeholder="Search Songs, Artist, Albums..."
                         required
                     />
+
+                    <div className="absolute right-7  bottom-2.5">{loading ? <Loader /> : null}</div>
                 </div>
             </form>
         </div>

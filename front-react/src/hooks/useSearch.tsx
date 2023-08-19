@@ -13,14 +13,14 @@ const searchQuery = (
     setLoading: (loading: boolean) => void
 ) => {
     search(queryParam).then((response) => {
-        if (response.status == 0) {
+        if (response.statusCode === 0) {
             setLoading(false);
             setResults(response.data);
         }
     });
 };
 
-const searchReq = lodash.debounce(searchQuery, 500, { leading: true, trailing: false });
+const searchReq = lodash.debounce(searchQuery, 500, { leading: true, trailing: true });
 
 export const useSearch = ({ queryParam }: Props) => {
     const [loading, setLoading] = useState(false);

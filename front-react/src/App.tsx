@@ -11,7 +11,7 @@ function App() {
         if (!!result.length)
             return (
                 <>
-                    <p className="">Search Results : </p>
+                    <p className="ml-4 mt-4 sm:mt-1">Search Results : </p>
                     <div className="mt-8 grid overflow-hidden px-2 md:px-4 grid-cols-2 grid-rows-3 gap-6 sm:grid-cols-4 sm:grid-rows-3 sm:gap-4 md:grid-cols-4 md:grid-rows-3 md:gap-3.5 lg:grid-cols-6 lg:grid-rows-3">
                         {result.map((item, i) => {
                             return <SearResultItem item={item} key={i} />;

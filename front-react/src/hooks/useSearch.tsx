@@ -20,7 +20,7 @@ const searchQuery = (
     });
 };
 
-const searchReq = lodash.debounce(searchQuery, 500, { leading: true, trailing: true });
+const searchReq = lodash.debounce(searchQuery, 500);
 
 export const useSearch = ({ queryParam }: Props) => {
     const [loading, setLoading] = useState(false);

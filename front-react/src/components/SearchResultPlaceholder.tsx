@@ -22,7 +22,7 @@ const SearchResultPlaceholderItem = () => {
 export const SearchResultPlaceholder: FC<{ count: number }> = ({ count }) => {
     return (
         <div className="mt-8 grid overflow-hidden px-2 md:px-4 grid-cols-2 grid-rows-3 gap-6 sm:grid-cols-4 sm:grid-rows-3 sm:gap-4 md:grid-cols-4 md:grid-rows-3 md:gap-3.5 lg:grid-cols-6 lg:grid-rows-3">
-            {Array.from(Array(10).keys()).map((_, i) => {
+            {Array.from(Array(count).keys()).map((_, i) => {
                 return <SearchResultPlaceholderItem key={i} />;
             })}
         </div>

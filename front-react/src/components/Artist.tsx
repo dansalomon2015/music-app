@@ -58,9 +58,8 @@ export const Artist: FC<{ artistId: string }> = ({ artistId }) => {
             className="w-full h-full"
             style={{
                 backgroundImage: `url(${backgroundImg})`,
-                backgroundSize: "80%",
-                // backgroundPosition: "center",
-                backgroundPositionY: "35%",
+                backgroundSize: "75%",
+                backgroundPositionY: "30%",
                 backgroundRepeat: "no-repeat",
             }}
         >

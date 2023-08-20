@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const controllers_1 = require("../controllers");
+const router = (0, express_1.Router)();
+const artistController = new controllers_1.ArtistController();
+router.get("/:id", artistController.getArtistDetails);
+router.get("/:id/albums", artistController.getAlbums);
+router.get("/:id/top", artistController.getTopTracks);
+exports.default = router;

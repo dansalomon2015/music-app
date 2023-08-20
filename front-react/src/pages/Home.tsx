@@ -28,7 +28,7 @@ export const Home = () => {
             );
     }, [result, loading, searchText]);
     return (
-        <div>
+        <div className="mb-4">
             <div className="py-3 px-3 md:px-4 md:py-5  bg-orange-500 shadow-md">
                 <h1 className="text-white font-bold text-xl">Music App</h1>
             </div>

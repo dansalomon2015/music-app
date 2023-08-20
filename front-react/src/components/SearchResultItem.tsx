@@ -1,6 +1,7 @@
 import { SearchResultModel } from "models";
 import { FC, useMemo } from "react";
 import { LazyImage } from "./LazyImage";
+import { Link } from "react-router-dom";
 
 type Props = {
     item: SearchResultModel;
@@ -10,7 +11,7 @@ export const SearResultItem: FC<Props> = ({ item }) => {
     const {
         title,
         duration,
-        artist: { name },
+        artist: { id, name },
         album,
     } = item;
 
@@ -29,9 +30,11 @@ export const SearResultItem: FC<Props> = ({ item }) => {
             </div>
             <p className="mt-4">{getDuration}</p>
             <p className="mt-1 font-bold text-xl line-clamp-2">{title}</p>
-            <span className="mt-1 font-semibold line-clamp-2">
-                By {name} <span className="hidden md:inline">({album.title})</span>
-            </span>
+            <Link to={`/artist/${id}`}>
+                <span className="mt-1 font-semibold line-clamp-2 cursor-pointer hover:text-gray-600 ">
+                    By {name} <span className="hidden md:inline">({album.title})</span>
+                </span>
+            </Link>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useSearch } from "hooks";
 import { SearResultItem, SearchInput, SearchResultPlaceholder } from "components";
+import { Outlet } from "react-router-dom";
 
 export const Home = () => {
     const [searchText, setSearchText] = useState("");
@@ -35,6 +36,8 @@ export const Home = () => {
             <SearchInput value={searchText} onValueChange={setSearchText} loading={loading} />
 
             {bodyComponent}
+
+            <Outlet />
         </div>
     );
 };

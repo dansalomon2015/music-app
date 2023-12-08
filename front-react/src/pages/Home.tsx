@@ -8,7 +8,7 @@ export const Home = () => {
     const { result, loading } = useSearch({ queryParam: searchText });
 
     const bodyComponent = useMemo(() => {
-        if (loading) return <SearchResultPlaceholder count={10} />;
+        if (loading) return <SearchResultPlaceholder count={12} />;
         if (!!result.length)
             return (
                 <>

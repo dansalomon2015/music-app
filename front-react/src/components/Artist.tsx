@@ -56,16 +56,19 @@ export const Artist: FC<{ artistId: string }> = ({ artistId }) => {
     return (
         <div
             className="w-full h-full"
+            id="artist-cover"
             style={{
                 backgroundImage: `url(${backgroundImg})`,
-                backgroundSize: "75%",
+                backgroundSize: "95%",
                 backgroundPositionY: "30%",
                 backgroundRepeat: "no-repeat",
             }}
         >
             <div
                 className="w-full h-full flex justify-between  items-start p-2"
-                style={{ backgroundColor: "rgba(255,255,255,0.3)" }}
+                style={{
+                    backgroundColor: "rgba(255,255,255,0.3)",
+                }}
             >
                 <div className="min-h-full pt-8 pl-10 sm:pl-24 sm:pt-28">
                     {!!artist ? (
